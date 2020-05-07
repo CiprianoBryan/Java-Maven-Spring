@@ -5,7 +5,8 @@
            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="numberGenerator" class="academy.learnprogramming.NumberGeneratorImpl"/>
-    <bean id="game" class="academy.learnprogramming.GameImpl">
+    <!-- telling us invoking init method reset on being with named game -->
+    <bean id="game" class="academy.learnprogramming.GameImpl" init-method="reset">
         <!-- name = name of field in GameImpl, ref = id of bean -->
         <property name="numberGenerator" ref="numberGenerator"/>
     </bean>

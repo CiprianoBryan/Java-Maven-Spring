@@ -39,3 +39,22 @@ Clean: Limpia lo que se ejecutó anteriormente (Borra el package ~ project compi
 
 > a circular dependency between been A and been B will force one of the beans to be injected into
   the other prior to being fully initialized itself (this is a classic chicken/egg scenario).
+
+###############################################################################
+###################### XML VS ANNOTATION CONFIGURATION ########################
+###############################################################################
+
+XML Configuration:
+<bean id="game" class="academy.learnprogramming.GameImpl">
+    <constructor-arg ref="numberGenerator"/>
+</bean>
+
+~
+
+Annotation Configuration:
+@Component
+public class GameImpl implements Game {
+    @Autowired
+    private NumberGenerator numberGenerator;
+    ...
+}

@@ -58,3 +58,10 @@ public class GameImpl implements Game {
     private NumberGenerator numberGenerator;
     ...
 }
+
+###############################################################################
+############################### ANNOTATIONS ###################################
+###############################################################################
+
+@Autowired: This annotation allows Spring to resolve and inject collaborating beans into your bean.
+@Repository, @Service and @Controller are specializations of @Component, for more specific use cases.

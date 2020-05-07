@@ -23,7 +23,7 @@ public class Main {
         log.info("number = {}", number);
 
         // get game bean from context (container)
-        Game game = context.getBean("game", Game.class);
+        Game game = context.getBean(Game.class);
 
         // close context (container)
         context.close();

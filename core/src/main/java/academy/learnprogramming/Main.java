@@ -21,8 +21,10 @@ public class Main {
         int number = numberGenerator.next();
         log.info("number = {}", number);
 
-        // get game bean from context (container)
-        Game game = context.getBean(Game.class);
+        // get message generator bean from context (container)
+        MessageGenerator message = context.getBean(MessageGenerator.class);
+        log.info("getMainMessage = {}", message.getMainMessage());
+        log.info("getResultMessage = {}", message.getResultMessage());
 
         // close context (container)
         context.close();

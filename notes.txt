@@ -67,3 +67,4 @@ public class GameImpl implements Game {
 @Repository, @Service and @Controller are specializations of @Component, for more specific use cases.
 @Configuration: Indica que la clase será usada como XML Configuration (JAVA Annotation Configuration)
 @ComponentScan(basePackages = "academy.learn") ~ <context:component-scan base-package="academy.learn"/>
+@Bean: Indica que es un bean, cuyo nombre será el del método

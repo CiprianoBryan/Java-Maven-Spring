@@ -68,3 +68,23 @@ public class GameImpl implements Game {
 @Configuration: Indica que la clase será usada como XML Configuration (JAVA Annotation Configuration)
 @ComponentScan(basePackages = "academy.learn") ~ <context:component-scan base-package="academy.learn"/>
 @Bean: Indica que es un bean, cuyo nombre será el del método
+
+@EventListener:
+
+@Component
+public class ConsoleNumberGuess {
+    @EventListener(ContextRefreshedEvent.class)
+    public void start() {
+        log.info("Container ready for use.");
+    }
+}
+
+~
+
+@Component
+public class ConsoleNumberGuess implements ApplicationListener<ContextRefreshedEvent> {
+    @Override
+    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
+        log.info("Container ready for use.");
+    }
+}

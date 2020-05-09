@@ -31,7 +31,7 @@ public class MessageGeneratorImpl implements MessageGenerator {
     @Override
     public String getResultMessage() {
         if (game.getRemainingGuesses() == guessCount) {
-            return "What is your first guess";
+            return "What is your first guess?";
         }
         if (!game.isValidNumberRange()) {
             return "Invalid number range!";

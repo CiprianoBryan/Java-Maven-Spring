@@ -65,3 +65,5 @@ public class GameImpl implements Game {
 
 @Autowired: This annotation allows Spring to resolve and inject collaborating beans into your bean.
 @Repository, @Service and @Controller are specializations of @Component, for more specific use cases.
+@Configuration: Indica que la clase será usada como XML Configuration (JAVA Annotation Configuration)
+@ComponentScan(basePackages = "academy.learn") ~ <context:component-scan base-package="academy.learn"/>

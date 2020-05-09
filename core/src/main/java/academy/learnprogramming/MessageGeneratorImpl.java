@@ -24,11 +24,28 @@ public class MessageGeneratorImpl implements MessageGenerator {
     // == public mehtods ==
     @Override
     public String getMainMessage() {
-        return "getMainMessage() called";
+        return "Number is between " + game.getSmallest() + " and " + game.getBiggest() +
+                ". Can you guess it?";
     }
 
     @Override
     public String getResultMessage() {
-        return "getResultMessage() called";
+        if (game.getRemainingGuesses() == guessCount) {
+            return "What is your first guess";
+        }
+        if (!game.isValidNumberRange()) {
+            return "Invalid number range!";
+        }
+        if (game.isGameWon()) {
+            return "You guessed it! The number was " + game.getNumber();
+        }
+        if (game.isGameLost()) {
+            return "You lost! The number was " + game.getNumber();
+        }
+        String direction = "Lower";
+        if (game.getGuess() < game.getNumber()) {
+            direction = "Higher";
+        }
+        return direction + "! You have " + game.getRemainingGuesses() + "guess left";
     }
 }

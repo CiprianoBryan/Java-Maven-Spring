@@ -64,27 +64,32 @@ public class GameImpl implements Game {
 ###############################################################################
 
 @Autowired: This annotation allows Spring to resolve and inject collaborating beans into your bean.
-@Repository, @Service and @Controller are specializations of @Component, for more specific use cases.
-@Configuration: Indica que la clase será usada como XML Configuration (JAVA Annotation Configuration)
-@ComponentScan(basePackages = "academy.learn") ~ <context:component-scan base-package="academy.learn"/>
-@Bean: Indica que es un bean, cuyo nombre será el del método
+@Component: @Repository, @Service and @Controller are specializations of @Component, for more specific use cases.
+@Configuration:
+    > Indica que la clase será usada como XML Configuration (JAVA Annotation Configuration)
+    @Import:
+        > Separamos los beans por tema o funcionalidad, en distintas clases para que sea más claro.
+        > Y en un archivo de configuración principal importamos los otros archivos de configuración.
+    @ComponentScan(basePackages = "academy.learn") ~ <context:component-scan base-package="academy.learn"/>
+    @Bean: Indica que es un bean, cuyo nombre será el del método, de otro modo un bean se puede asociar a
+        un elemento que tenga el mismo tipo de dato que dicho bean, de ahí que un campo tenga beans candidatos.
 
 @EventListener:
 
-@Component
-public class ConsoleNumberGuess {
-    @EventListener(ContextRefreshedEvent.class)
-    public void start() {
-        log.info("Container ready for use.");
+    @Component
+    public class ConsoleNumberGuess {
+        @EventListener(ContextRefreshedEvent.class)
+        public void start() {
+            log.info("Container ready for use.");
+        }
     }
-}
 
-~
+    ~
 
-@Component
-public class ConsoleNumberGuess implements ApplicationListener<ContextRefreshedEvent> {
-    @Override
-    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        log.info("Container ready for use.");
+    @Component
+    public class ConsoleNumberGuess implements ApplicationListener<ContextRefreshedEvent> {
+        @Override
+        public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
+            log.info("Container ready for use.");
+        }
     }
-}

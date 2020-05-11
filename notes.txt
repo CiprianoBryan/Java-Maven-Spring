@@ -93,3 +93,15 @@ public class GameImpl implements Game {
             log.info("Container ready for use.");
         }
     }
+
+@Qualifier: Es una anotación que se aplica a un bean, de esta manera el contenedor sabrá que debe
+    hacer un Autowired automáticamente y no tenemos que depender específicamente del nombre de un bean.
+    --------------> Annotation-based auto wiring <---------------
+    El container resuelve los beans viendo los calificadores
+    -> Es por decirlo así crear nuestra anotación.
+    -> Luego colocar esta anotación al método(bean) que corresponde y al campo(field), los cuales se corresponden
+        y de esta forma estarán unidos.
+    -> Esto evitará que un bean tenga distintos candidatos, ya que conectamos el campo con el bean que le corresponde
+    @Target({ElementType.FIELD, ElementType.PARAMETER, ...}): Indica donde se puede agregar, e.g en los campos, parametro..
+    @Retention(RetentionPolicy.RUNTIME): Indica el tiempo que se conservará la anotación,
+        > RetentionPolicy.RUNTIME: Indica que será retenida por la maquina virtual en tiempo de ejecución.

@@ -14,13 +14,13 @@ public class GameConfig {
     // == bean methods ==
     @Bean
     @MaxNumber
-    public int maxNumber() {
+    public int maxNumber_changeName() {
         return maxNumber;
     }
 
     @Bean
     @GuessCount
-    public int guessCount() {
+    public int guessCount1() {
         return guessCount;
     }
 }

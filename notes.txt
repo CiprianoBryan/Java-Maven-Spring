@@ -60,6 +60,34 @@ public class GameImpl implements Game {
 }
 
 ###############################################################################
+########################## CONSTRUCTOR INJECTION ##############################
+###############################################################################
+
+En caso los campos(field) a inyectar tengan su candidato como componente,
+entonces no es necesario que el constructor sea Autowired, y notaremos
+que el constructor se coloreará ya que se detectó la relación.
+
+public ConsoleNumberGuess(Game game, MessageGenerator messageGenerator) {
+    this.game = game;
+    this.messageGenerator = messageGenerator;
+}
+
+En caso alguno de los campos, que su candidato no sea un componente, entonces
+el constructor debe ser Autowired
+
+@Autowired
+public GameImpl(NumberGenerator numberGenerator, @GuessCount int guessCount) {
+    this.guessCount = guessCount;
+    this.numberGenerator = numberGenerator;
+}
+
+@Autowired
+public NumberGeneratorImpl(@MaxNumber int maxNumber, @MinNumber int minNumber) {
+    this.maxNumber = maxNumber;
+    this.minNumber = minNumber;
+}
+
+###############################################################################
 ############################### ANNOTATIONS ###################################
 ###############################################################################
 
@@ -109,6 +137,6 @@ public class GameImpl implements Game {
 @PropertySource("classpath:config/game.properties") : Nos permite cargar  y usar los valores contenidos en el properties file
     > Properties file:  Archivo cuyo contenido es clave valor, constantes
 
-    @Value("${game.maxNumber:20}") : Injecta el valor asociada a la clave que se encuentra en el properties file
-        > clabe: game.maxNumber
+    @Value("${game.maxNumber:20}") : Inyecta el valor asociado a la clave que se encuentra en el properties file
+        > clave: game.maxNumber
         > 20 : Default Value, en caso de no encontrarse la clave en el propertie file se usará el valor por default

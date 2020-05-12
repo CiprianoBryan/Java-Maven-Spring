@@ -105,3 +105,10 @@ public class GameImpl implements Game {
     @Target({ElementType.FIELD, ElementType.PARAMETER, ...}): Indica donde se puede agregar, e.g en los campos, parametro..
     @Retention(RetentionPolicy.RUNTIME): Indica el tiempo que se conservará la anotación,
         > RetentionPolicy.RUNTIME: Indica que será retenida por la maquina virtual en tiempo de ejecución.
+
+@PropertySource("classpath:config/game.properties") : Nos permite cargar  y usar los valores contenidos en el properties file
+    > Properties file:  Archivo cuyo contenido es clave valor, constantes
+
+    @Value("${game.maxNumber:20}") : Injecta el valor asociada a la clave que se encuentra en el properties file
+        > clabe: game.maxNumber
+        > 20 : Default Value, en caso de no encontrarse la clave en el propertie file se usará el valor por default

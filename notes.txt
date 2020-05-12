@@ -99,6 +99,10 @@ public NumberGeneratorImpl(@MaxNumber int maxNumber, @MinNumber int minNumber) {
         > Separamos los beans por tema o funcionalidad, en distintas clases para que sea más claro.
         > Y en un archivo de configuración principal importamos los otros archivos de configuración.
     @ComponentScan(basePackages = "academy.learn") ~ <context:component-scan base-package="academy.learn"/>
+        > Indica cuales beans serán escaneados
+        > Si no tiene un argumento entonces escaneará los que se encuentren en el paquete actual
+        > Si se especifica el paquete, entonces escaneará ese y los sub paquetes que se encuentren dentro
+
     @Bean: Indica que es un bean, cuyo nombre será el del método, de otro modo un bean se puede asociar a
         un elemento que tenga el mismo tipo de dato que dicho bean, de ahí que un campo tenga beans candidatos.
 

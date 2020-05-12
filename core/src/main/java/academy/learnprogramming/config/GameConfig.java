@@ -11,7 +11,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @PropertySource("classpath:config/game.properties")
-//@ComponentScan(basePackages = "academy.learnprogramming")
+@ComponentScan(basePackages = "academy.learnprogramming")
 public class GameConfig {
     // == fields ==
     @Value("${game.maxNumber:20}")

@@ -144,3 +144,21 @@ public NumberGeneratorImpl(@MaxNumber int maxNumber, @MinNumber int minNumber) {
     @Value("${game.maxNumber:20}") : Inyecta el valor asociado a la clave que se encuentra en el properties file
         > clave: game.maxNumber
         > 20 : Default Value, en caso de no encontrarse la clave en el propertie file se usará el valor por default
+
+###############################################################################
+############################ LOMBOK ANNOTATIONS ###############################
+###############################################################################
+
+La anotación irá arriba del campo que queremos que actue.
+En caso queramos que actue en todos los campos de la clase se colocará arriba del nombre de la clase.
+
+@Getter: Si a un campo le colocamos con el argumento AccessLevel.NONE entonces no accederemos al getter de ese campo
+@Setter
+@ToString
+@EqualsAndHashCode
+@RequiredArgsConstructor: will generate a constructor with required arguments
+@Slf4j: will generate a private static final field for SLF4J logger
+@Data:
+    > generates boilerplate code for POJO (Plain Old Java Object)
+    > It combines @Getter + ... + @RequiredArgsConstructor
+    > Constructor is not generated if it has been declared already

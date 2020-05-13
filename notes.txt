@@ -162,3 +162,35 @@ En caso queramos que actue en todos los campos de la clase se colocará arriba d
     > generates boilerplate code for POJO (Plain Old Java Object)
     > It combines @Getter + ... + @RequiredArgsConstructor
     > Constructor is not generated if it has been declared already
+
+###############################################################################
+############################# PATTERN DESIGNS #################################
+###############################################################################
+
+> https://medium.com/@gcralos/patrones-de-diseño-en-java-ec7969f572a3
+> Patrones: Se definen como una solución ya probada a un problema en específico
+
+>   "Un design pattern o patrón de diseño consiste en un diagrama de objetos que forma
+        una solución a un problema conocido y frecuente"
+
+###############################################################################
+################################ SPRING MVC ###################################
+###############################################################################
+
+> Model, View and Controller and it is a design pattern
+> Model: Models are responsible for managing the application's data, business logic and business rules
+> View: The view is an output representation of information, for example displaying information or reports
+    to the user either as a web form or as charts
+> Controller: The controller is responsible for invoking Models to perform business logic and then updating
+    the view based on the Models output.
+
+> Tenemos un central Servlet, conocido como DispatcherServlet, que proporciona un algoritmo compartido
+    para el procesamiento de solicitudes.
+    Controladores que manejan las solicitudes por lo que este diseño es flexible y permite diferentes
+    flujos de trabajo en los que el DispatcherServlet espera un WebApplicationContext (contexto de aplicación web),
+    que es una extensión de un plain ApplicationContext, para su propia configuración.
+> DispatcherServlet delega beans especiales para procesar solicitudes y render las respuestas apropiadas.
+> Con el WebApplicationContext hay algunos beans que se registran automáticamente
+> With Spring MVC we can use different view technologies to render web pages.
+    For example Groovy Markup, Freemarker, and Thymeleaf.
+> Spring MVC also integrates with other web frameworks
